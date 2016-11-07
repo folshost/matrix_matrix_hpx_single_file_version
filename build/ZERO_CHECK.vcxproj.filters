@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Maxwell\Documents\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\f6f7067899c3457c304e840ba7889123\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{D493FEF1-758E-379B-AE5B-963BBEC0E7E9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
