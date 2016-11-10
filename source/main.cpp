@@ -67,6 +67,21 @@ std::vector< std::vector<double> > matrix_gen(double dim_on, double dim_tw) {
 	return data;
 }
 
+std::vector<double> matrix_worker_serial(
+	std::vector< std::vector<double> > one, std::vector< std::vector<double> >
+	two, int i)
+{
+	
+	std::vector<double> values;
+	for (int j = 0; j < two.at(0).capacity(); j++)
+	{
+		values.push_back(dot_product(one.at(i), get_col(two, j)));
+	}
+
+	return values;
+}
+HPX_PLAIN_ACTION(matrix_worker_serial, matrix_worker_serial_action);
+
 std::vector<hpx::lcos::future<double>> matrix_worker(
 	std::vector< std::vector<double> > one, std::vector< std::vector<double> >
 	two, int i) 
@@ -82,6 +97,55 @@ std::vector<hpx::lcos::future<double>> matrix_worker(
 	return futures;
 }
 HPX_PLAIN_ACTION(matrix_worker, matrix_worker_action);
+
+
+
+std::vector< std::vector <double> > matrix_foreman_serial(
+	std::vector< std::vector<double> > one, std::vector< std::vector<double> >
+	two)
+{
+	bool twenty_five = false, fifty = false, seventy_five = false;
+	hpx::naming::id_type here = hpx::find_here();
+	std::vector< std::vector<double> > data;
+	data.reserve(one.capacity());
+	std::vector< hpx::lcos::future< std::vector<double> > > futures;
+	std::cout << "Matrix Foreman Loading:\n" << std::endl;
+	for (int i = 0; i < one.capacity(); i++)
+	{
+		std::vector<double> k;
+		k.reserve(two.at(0).capacity());
+		data.push_back(k);
+		matrix_worker_action mat;
+		futures.push_back(hpx::async<matrix_worker_serial_action>
+			(here, one, two, i));
+		if ((double)i / one.capacity() >= 0.25 && !twenty_five) {
+			std::cout << "25%..." << std::endl;
+			twenty_five = true;
+		}
+		if ((double)i / one.capacity() >= 0.5 && !fifty) {
+			std::cout << "50%..." << std::endl;
+			fifty = true;
+		}
+		if ((double)i / one.capacity() >= 0.75 && !seventy_five) {
+			std::cout << "75%..." << std::endl;
+			seventy_five = true;
+		}
+
+	}
+	std::cout << "Finshed loading the async calls!" << std::endl;
+	for (int i = 0; i < one.capacity(); i++) {
+		//std::cout << "Got to " << i << " in data assignment!" << std::endl;
+		std::vector<double> vick = futures.at(i).get();
+		for (int j = 0; j < two.at(0).capacity(); j++) {
+					
+			data.at(i).push_back(vick.at(j));
+			//std::cout << "\tHere's data[i][j]: " << data.at(i).at(j) << std::endl;
+		}
+	}
+	return data;
+}
+
+
 
 std::vector< std::vector <double> > matrix_foreman(
 	std::vector< std::vector<double> > one, std::vector< std::vector<double> > 
@@ -194,7 +258,7 @@ int main(int argc, char* argv[])
 	//std::cout << std::endl;
 	
 	
-	std::vector< std::vector<double> > new_matrix = matrix_foreman(
+	std::vector< std::vector<double> > new_matrix = matrix_foreman_serial(
 		first_matrix, second_matrix);
 	/*
 	
