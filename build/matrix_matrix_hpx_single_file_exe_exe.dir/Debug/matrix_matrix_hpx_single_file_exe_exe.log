@@ -1,13 +1,9 @@
-﻿  Building Custom Rule C:/Users/Maxwell/Documents/CCT/matrix_matrix_hpx_single_file_version/source/CMakeLists.txt
-  CMake does not need to re-run because C:\Users\Maxwell\Documents\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\generate.stamp is up-to-date.
-  main.cpp
+﻿  main.cpp
   NOTE: Use of this header (bool_trait_def.hpp) is deprecated
   NOTE: Use of this header (template_arity_spec.hpp) is deprecated
   NOTE: Use of this header (template_arity_spec.hpp) is deprecated
 C:\Users\Maxwell\Documents\CCT\matrix_matrix_hpx_single_file_version\source\main.cpp(60): warning C4244: 'argument': conversion from 'double' to 'unsigned __int64', possible loss of data
 C:\Users\Maxwell\Documents\CCT\matrix_matrix_hpx_single_file_version\source\main.cpp(65): warning C4244: 'argument': conversion from 'double' to 'unsigned __int64', possible loss of data
-C:\Users\Maxwell\Documents\CCT\matrix_matrix_hpx_single_file_version\source\main.cpp(100): warning C4101: 'mat': unreferenced local variable
-C:\Users\Maxwell\Documents\CCT\matrix_matrix_hpx_single_file_version\source\main.cpp(168): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Maxwell\Documents\CCT\matrix_matrix_hpx_single_file_version\source\main.cpp(240): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
      Creating library C:/Users/Maxwell/Documents/CCT/matrix_matrix_hpx_single_file_version/build/Debug/matrix_matrix_hpx_single_file_exe.lib and object C:/Users/Maxwell/Documents/CCT/matrix_matrix_hpx_single_file_version/build/Debug/matrix_matrix_hpx_single_file_exe.exp
-  matrix_matrix_hpx_single_file_exe_exe.vcxproj -> C:\Users\Maxwell\Documents\CCT\matrix_matrix_hpx_single_file_version\build\Debug\matrix_matrix_hpx_single_file_exe.exe
-  matrix_matrix_hpx_single_file_exe_exe.vcxproj -> C:/Users/Maxwell/Documents/CCT/matrix_matrix_hpx_single_file_version/build/Debug/matrix_matrix_hpx_single_file_exe.pdb (Full PDB)
+LINK : fatal error LNK1201: error writing to program database 'C:\Users\Maxwell\Documents\CCT\matrix_matrix_hpx_single_file_version\build\Debug\matrix_matrix_hpx_single_file_exe.pdb'; check for insufficient disk space, invalid path, or insufficient privilege

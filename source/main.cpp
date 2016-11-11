@@ -27,8 +27,8 @@
 std::vector<double> get_col(const std::vector< std::vector<double> >& data,
 	int col);
 
-double dot_product(const std::vector<double>& row,
-	const std::vector<double>& columns);
+double dot_product(const std::vector<double> row,
+	const std::vector<double> columns);
 
 
 
@@ -44,8 +44,8 @@ void rules() {
 }
 
 
-double dot_product(const std::vector<double>& row,
-	const std::vector<double>& columns) {
+double dot_product(const std::vector<double> row,
+	const std::vector<double> columns) {
 	double sum = 0;
 	for (int i = 0; i < row.size(); i++) {
 		sum += row.at(i) * columns.at(i);
@@ -68,14 +68,14 @@ std::vector< std::vector<double> > matrix_gen(double dim_on, double dim_tw) {
 }
 
 std::vector<double> matrix_worker_serial(
-	std::vector< std::vector<double> > one, std::vector< std::vector<double> >
-	two, int i)
+	std::vector< double> one, std::vector< std::vector<double> >
+	two)
 {
 	
 	std::vector<double> values;
 	for (int j = 0; j < two.at(0).capacity(); j++)
 	{
-		values.push_back(dot_product(one.at(i), get_col(two, j)));
+		values.push_back(dot_product(one, get_col(two, j)));
 	}
 
 	return values;
@@ -83,15 +83,15 @@ std::vector<double> matrix_worker_serial(
 HPX_PLAIN_ACTION(matrix_worker_serial, matrix_worker_serial_action);
 
 std::vector<hpx::lcos::future<double>> matrix_worker(
-	std::vector< std::vector<double> > one, std::vector< std::vector<double> >
-	two, int i) 
+	std::vector< double > one, std::vector< std::vector<double> >
+	two) 
 {	
 	hpx::naming::id_type const here = hpx::find_here();	
 	std::vector<hpx::lcos::future<double> > futures;
 	for (int j = 0; j < two.at(0).capacity(); j++)
 	{
 		futures.push_back(hpx::async<dot_product_action>(here,
-			one.at(i), get_col(two, j)));		
+			one, get_col(two, j)));		
 	}
 	
 	return futures;
@@ -101,23 +101,30 @@ HPX_PLAIN_ACTION(matrix_worker, matrix_worker_action);
 
 
 std::vector< std::vector <double> > matrix_foreman_serial(
-	std::vector< std::vector<double> > one, std::vector< std::vector<double> >
+	std::vector< std::vector<double> >& one, std::vector< std::vector<double> >&
 	two)
 {
 	bool twenty_five = false, fifty = false, seventy_five = false;
 	hpx::naming::id_type here = hpx::find_here();
 	std::vector< std::vector<double> > data;
 	data.reserve(one.capacity());
-	std::vector< hpx::lcos::future< std::vector<double> > > futures;
-	std::cout << "Matrix Foreman Loading:\n" << std::endl;
+	std::vector< std::vector<hpx::lcos::future<double> > > futuresParent;
+	std::cout << "Matrix Foreman Loading:" << std::endl;
 	for (int i = 0; i < one.capacity(); i++)
 	{
 		std::vector<double> k;
 		k.reserve(two.at(0).capacity());
 		data.push_back(k);
-		matrix_worker_action mat;
-		futures.push_back(hpx::async<matrix_worker_serial_action>
-			(here, one, two, i));
+
+		std::vector<hpx::lcos::future<double> > futures;
+		for (int j = 0; j < two.at(0).capacity(); j++)
+		{
+			futures.push_back(hpx::async<dot_product_action>(here,
+				one.at(i), get_col(two, j)));
+		}
+		futures.at(0).get();
+		//futuresParent.push_back(futures);
+		
 		if ((double)i / one.capacity() >= 0.25 && !twenty_five) {
 			std::cout << "25%..." << std::endl;
 			twenty_five = true;
@@ -135,10 +142,10 @@ std::vector< std::vector <double> > matrix_foreman_serial(
 	std::cout << "Finshed loading the async calls!" << std::endl;
 	for (int i = 0; i < one.capacity(); i++) {
 		//std::cout << "Got to " << i << " in data assignment!" << std::endl;
-		std::vector<double> vick = futures.at(i).get();
+		//std::vector< hpx::lcos::future<double> > vick = futuresParent.at(i);
 		for (int j = 0; j < two.at(0).capacity(); j++) {
 					
-			data.at(i).push_back(vick.at(j));
+			//data.at(i).push_back(vick.at(j).get());
 			//std::cout << "\tHere's data[i][j]: " << data.at(i).at(j) << std::endl;
 		}
 	}
@@ -146,9 +153,9 @@ std::vector< std::vector <double> > matrix_foreman_serial(
 }
 
 
-
+/*
 std::vector< std::vector <double> > matrix_foreman(
-	std::vector< std::vector<double> > one, std::vector< std::vector<double> > 
+	std::vector< std::vector<double> >& one, std::vector< std::vector<double> >& 
 	two) 
 {
 	hpx::naming::id_type here = hpx::find_here();
@@ -163,7 +170,7 @@ std::vector< std::vector <double> > matrix_foreman(
 		data.push_back(k);
 		matrix_worker_action mat;
 		futures.push_back(hpx::async<matrix_worker_action>
-			( here, one, two, i ));
+			( here, one.at(i), two));
 	}
 	//std::cout << "Got past calling matrix_worker_action!" << std::endl;
 	for (int i = 0; i < one.capacity(); i++) {
@@ -180,6 +187,7 @@ std::vector< std::vector <double> > matrix_foreman(
 	}
 	return data;
 }
+*/
 
 
 std::vector< std::vector <double> >
