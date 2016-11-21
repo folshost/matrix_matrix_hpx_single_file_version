@@ -1,4 +1,5 @@
-// matrix_mult_no_pntrs.cpp : Defines the entry point for the console application.
+// matrix_mult_no_pntrs.cpp : Defines the entry point for the 
+// console application.
 //
 
 //#include "stdafx.h"
@@ -10,6 +11,7 @@
 #include <hpx/include/iostreams.hpp>
 
 #include <boost/format.hpp>
+#include <boost/container/vector.hpp>
 
 #include <cstddef>
 #include <list>
@@ -23,6 +25,8 @@
 #include <stdio.h>
 #include <vector>
 
+
+bool debug = true;
 
 std::vector<double> get_col(const std::vector< std::vector<double> >& data,
 	int col);
@@ -54,25 +58,25 @@ double dot_product(const std::vector<double> row,
 }
 HPX_PLAIN_ACTION(dot_product, dot_product_action);
 
-std::vector< std::vector<double> > matrix_gen(double dim_on, double dim_tw) {
+std::vector< std::vector<double> > matrix_gen(int dim_on, int dim_tw) {
 	//std::cout << dim_on << " " << dim_tw << std::endl;
-	std::vector< std::vector<double> > data;
+	std::vector< std::vector<double > > data;
 	data.reserve(dim_on);
 	//std::cout << data.capacity() << std::endl;
 	for (int i = 0; i < dim_on; i++) {
-		std::vector<double> k;
+		std::vector<double > k;
 		data.push_back(k);
 		data.at(i).reserve(dim_tw);
 	}
 	return data;
 }
 
-std::vector<double> matrix_worker_serial(
-	std::vector< double> one, std::vector< std::vector<double> >
+std::vector< double > matrix_worker_serial(
+	std::vector< double > one, std::vector< std::vector< double > >
 	two)
 {
 	
-	std::vector<double> values;
+	std::vector< double > values;
 	for (int j = 0; j < two.at(0).capacity(); j++)
 	{
 		values.push_back(dot_product(one, get_col(two, j)));
@@ -82,12 +86,12 @@ std::vector<double> matrix_worker_serial(
 }
 HPX_PLAIN_ACTION(matrix_worker_serial, matrix_worker_serial_action);
 
-std::vector<hpx::lcos::future<double>> matrix_worker(
-	std::vector< double > one, std::vector< std::vector<double> >
+std::vector< hpx::lcos::future< double > > matrix_worker(
+	std::vector< double > one, std::vector< std::vector< double > >
 	two) 
 {	
 	hpx::naming::id_type const here = hpx::find_here();	
-	std::vector<hpx::lcos::future<double> > futures;
+	std::vector< hpx::lcos::future< double > > futures;
 	for (int j = 0; j < two.at(0).capacity(); j++)
 	{
 		futures.push_back(hpx::async<dot_product_action>(here,
@@ -100,31 +104,40 @@ HPX_PLAIN_ACTION(matrix_worker, matrix_worker_action);
 
 
 
-std::vector< std::vector <double> > matrix_foreman_serial(
-	std::vector< std::vector<double> >& one, std::vector< std::vector<double> >&
-	two)
+std::vector< std::vector < double > > matrix_foreman_serial(
+	std::vector< std::vector< double > >& one, 
+	std::vector< std::vector< double > >&	two)
 {
 	bool twenty_five = false, fifty = false, seventy_five = false;
 	hpx::naming::id_type here = hpx::find_here();
-	std::vector< std::vector<double> > data;
+	std::vector< std::vector< double > > data;
 	data.reserve(one.capacity());
-	std::vector< std::vector<hpx::lcos::future<double> > > futuresParent;
+	std::vector< std::vector< 
+	    hpx::lcos::future< double > >*  > futuresParent;
 	std::cout << "Matrix Foreman Loading:" << std::endl;
 	for (int i = 0; i < one.capacity(); i++)
 	{
-		std::vector<double> k;
+		//Try making futuresParent not a vector of vectors, maybe just futures
+		//-- Turns out this works
+		//Try making futures just an array of futures, see if it's a container 
+		//thing,
+		//just a vector thing, etc. etc. --Turns out this also works
+		std::vector< double > k;
 		k.reserve(two.at(0).capacity());
 		data.push_back(k);
-
-		std::vector<hpx::lcos::future<double> > futures;
+		
+		std::vector< hpx::lcos::future< double> > futures;
+		futuresParent.push_back(&futures);
 		for (int j = 0; j < two.at(0).capacity(); j++)
 		{
-			futures.push_back(hpx::async<dot_product_action>(here,
+			futuresParent.at(i)->push_back(hpx::async< dot_product_action >(here,
 				one.at(i), get_col(two, j)));
 		}
-		futures.at(0).get();
-		//futuresParent.push_back(futures);
-		
+	    std::cout << "Inside loading, i = " << i << " And f.size() = " << futuresParent.at(i)->size() << std::endl;
+		if(i > 0)
+			std::cout << "Inside loading, i = " << i-1 << " And f.size() = " << futuresParent.at(i-1)->size() << std::endl;
+
+
 		if ((double)i / one.capacity() >= 0.25 && !twenty_five) {
 			std::cout << "25%..." << std::endl;
 			twenty_five = true;
@@ -139,14 +152,26 @@ std::vector< std::vector <double> > matrix_foreman_serial(
 		}
 
 	}
+	std::cout << "f.size() = " << futuresParent.at(0)->size() << std::endl;
 	std::cout << "Finshed loading the async calls!" << std::endl;
 	for (int i = 0; i < one.capacity(); i++) {
-		//std::cout << "Got to " << i << " in data assignment!" << std::endl;
-		//std::vector< hpx::lcos::future<double> > vick = futuresParent.at(i);
+		if (debug) {
+		    std::cout << "Got to " << i << " in data assignment!" << std::endl;
+
+		}
+		std::vector< hpx::lcos::future< double > >* f = futuresParent.at(i);
+		if(debug)
+			std::cout << "Accessed top level of futuresParent successfully! f.size() = " << f->size() << std::endl;
 		for (int j = 0; j < two.at(0).capacity(); j++) {
-					
-			//data.at(i).push_back(vick.at(j).get());
-			//std::cout << "\tHere's data[i][j]: " << data.at(i).at(j) << std::endl;
+			hpx::lcos::future<double>* value = &f->at(j); // so this is the problem! Why?
+			if (debug)
+				std::cout << "Accessed future level of futuresParent successfully!" << std::endl;
+			double real_value = value->get();
+			if (debug)
+				std::cout << "Accessed lowest level of futuresParent successfully!" << std::endl;
+			//data.at(i).push_back(futuresParent.at(i)->at(j).get()); //futuresParent.at(i)->at(j).get()
+			//std::cout << "\tHere's data[i][j]: " << data.at(i).at(j) << 
+			//std::endl;
 		}
 	}
 	return data;
@@ -155,8 +180,8 @@ std::vector< std::vector <double> > matrix_foreman_serial(
 
 /*
 std::vector< std::vector <double> > matrix_foreman(
-	std::vector< std::vector<double> >& one, std::vector< std::vector<double> >& 
-	two) 
+	std::vector< std::vector<double> >& one, 
+	std::vector< std::vector<double> >&	two) 
 {
 	hpx::naming::id_type here = hpx::find_here();
 	std::vector< std::vector<double> > data;
@@ -177,12 +202,15 @@ std::vector< std::vector <double> > matrix_foreman(
 		//std::cout << "Got to " << i << " in data assignment!" << std::endl;
 		std::vector<hpx::lcos::future<double> > vick = futures.at(i).get(); 
 		for (int j = 0; j < two.at(0).capacity(); j++) {			
-			//std::cout << "\tGot to " << j << " in internal for-loop for data assignment!" << std::endl;
+			//std::cout << "\tGot to " << j << " in internal for-loop for data 
+			assignment!" << std::endl;
 			
-			double f = vick.at(j).get();                     //I should try doing f = vick.at(j), see what happens
+			double f = vick.at(j).get();                     
+			//I should try doing f = vick.at(j), see what happens
 			//std::cout << "\tHere's f: " << f << std::endl;			
 			data.at(i).push_back( f );
-			//std::cout << "\tHere's data[i][j]: " << data.at(i).at(j) << std::endl;
+			//std::cout << "\tHere's data[i][j]: " << data.at(i).at(j) 
+			<< std::endl;
 		}
 	}
 	return data;
@@ -190,9 +218,9 @@ std::vector< std::vector <double> > matrix_foreman(
 */
 
 
-std::vector< std::vector <double> >
-  rand_filler(double dim_one, double dim_two) {
-	std::vector<std::vector<double>> data =
+std::vector< std::vector < double > >
+  rand_filler(int dim_one, int dim_two) {
+	std::vector< std::vector< double > > data =
 		matrix_gen(dim_one, dim_two);
 	for(int i = 0; i < data.capacity(); i++) {
 		data.at(0);
@@ -214,10 +242,10 @@ HPX_PLAIN_ACTION(rand_filler, rand_filler_action);
 
 
 
-std::vector<double> get_col( const std::vector< std::vector<double> >& data,
+std::vector< double > get_col( const std::vector< std::vector< double > >& data,
 	int col) 
 {
-	std::vector<double> column;
+	std::vector< double > column;
 	column.reserve(data.capacity());
 	for (int i = 0; i < data.capacity(); i++) 
 	{
@@ -253,20 +281,24 @@ int main(int argc, char* argv[])
 		return 0;
 	}
 	
-	//std::cout << first_matrix_dim_one << " " << first_matrix_dim_two << std::endl;
-	std::vector< std::vector<double> > first_matrix = 
+	if(debug)
+	    std::cout << first_matrix_dim_one << " " << first_matrix_dim_two << 
+	    std::endl;
+	std::vector< std::vector< double > > first_matrix = 
 		rand_filler(first_matrix_dim_one, first_matrix_dim_two);
 	
-	//std::cout << std::endl;
+	if (debug)
+	    std::cout << "After first rand_filler" << std::endl;
 
 
-	std::vector< std::vector<double> > second_matrix = 
+	std::vector< std::vector< double > > second_matrix = 
 		rand_filler(second_matrix_dim_one, second_matrix_dim_two);
 
-	//std::cout << std::endl;
+	if(debug)
+		std::cout << "After second rand_filler" << std::endl;
 	
 	
-	std::vector< std::vector<double> > new_matrix = matrix_foreman_serial(
+	std::vector< std::vector< double > > new_matrix = matrix_foreman_serial(
 		first_matrix, second_matrix);
 	/*
 	

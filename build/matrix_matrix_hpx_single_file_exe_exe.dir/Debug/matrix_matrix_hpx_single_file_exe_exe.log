@@ -2,8 +2,6 @@
   NOTE: Use of this header (bool_trait_def.hpp) is deprecated
   NOTE: Use of this header (template_arity_spec.hpp) is deprecated
   NOTE: Use of this header (template_arity_spec.hpp) is deprecated
-C:\Users\Maxwell\Documents\CCT\matrix_matrix_hpx_single_file_version\source\main.cpp(60): warning C4244: 'argument': conversion from 'double' to 'unsigned __int64', possible loss of data
-C:\Users\Maxwell\Documents\CCT\matrix_matrix_hpx_single_file_version\source\main.cpp(65): warning C4244: 'argument': conversion from 'double' to 'unsigned __int64', possible loss of data
-C:\Users\Maxwell\Documents\CCT\matrix_matrix_hpx_single_file_version\source\main.cpp(240): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-     Creating library C:/Users/Maxwell/Documents/CCT/matrix_matrix_hpx_single_file_version/build/Debug/matrix_matrix_hpx_single_file_exe.lib and object C:/Users/Maxwell/Documents/CCT/matrix_matrix_hpx_single_file_version/build/Debug/matrix_matrix_hpx_single_file_exe.exp
-LINK : fatal error LNK1201: error writing to program database 'C:\Users\Maxwell\Documents\CCT\matrix_matrix_hpx_single_file_version\build\Debug\matrix_matrix_hpx_single_file_exe.pdb'; check for insufficient disk space, invalid path, or insufficient privilege
+C:\Users\Maxwell\Documents\CCT\matrix_matrix_hpx_single_file_version\source\main.cpp(268): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  matrix_matrix_hpx_single_file_exe_exe.vcxproj -> C:\Users\Maxwell\Documents\CCT\matrix_matrix_hpx_single_file_version\build\Debug\matrix_matrix_hpx_single_file_exe.exe
+  matrix_matrix_hpx_single_file_exe_exe.vcxproj -> C:/Users/Maxwell/Documents/CCT/matrix_matrix_hpx_single_file_version/build/Debug/matrix_matrix_hpx_single_file_exe.pdb (Full PDB)
