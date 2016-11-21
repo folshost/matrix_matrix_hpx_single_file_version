@@ -26,7 +26,7 @@
 #include <vector>
 
 
-bool debug = true;
+bool debug = false;
 
 std::vector<double> get_col(const std::vector< std::vector<double> >& data,
 	int col);
@@ -113,7 +113,7 @@ std::vector< std::vector < double > > matrix_foreman_serial(
 	std::vector< std::vector< double > > data;
 	data.reserve(one.capacity());
 	std::vector< std::vector< 
-	    hpx::lcos::future< double > >*  > futuresParent;
+	    hpx::lcos::shared_future< double > >  > futuresParent;
 	std::cout << "Matrix Foreman Loading:" << std::endl;
 	for (int i = 0; i < one.capacity(); i++)
 	{
@@ -126,16 +126,19 @@ std::vector< std::vector < double > > matrix_foreman_serial(
 		k.reserve(two.at(0).capacity());
 		data.push_back(k);
 		
-		std::vector< hpx::lcos::future< double> > futures;
-		futuresParent.push_back(&futures);
+		std::vector< hpx::lcos::shared_future<double> > futures;
+		futuresParent.push_back(futures);
 		for (int j = 0; j < two.at(0).capacity(); j++)
 		{
-			futuresParent.at(i)->push_back(hpx::async< dot_product_action >(here,
+			futuresParent.at(i).push_back(hpx::async< dot_product_action >(here,
 				one.at(i), get_col(two, j)));
 		}
-	    std::cout << "Inside loading, i = " << i << " And f.size() = " << futuresParent.at(i)->size() << std::endl;
-		if(i > 0)
-			std::cout << "Inside loading, i = " << i-1 << " And f.size() = " << futuresParent.at(i-1)->size() << std::endl;
+		if (debug) {
+			std::cout << "Inside loading, i = " << i << " And f.size() = " << futuresParent.at(i).size() << std::endl;
+		    if(i > 0)
+			    std::cout << "Inside loading, i = " << i-1 << " And f.size() = " << futuresParent.at(i-1).size() << std::endl;
+
+		}
 
 
 		if ((double)i / one.capacity() >= 0.25 && !twenty_five) {
@@ -152,24 +155,22 @@ std::vector< std::vector < double > > matrix_foreman_serial(
 		}
 
 	}
-	std::cout << "f.size() = " << futuresParent.at(0)->size() << std::endl;
+	if(debug)
+		std::cout << "f.size() = " << futuresParent.at(0).size() << std::endl;
 	std::cout << "Finshed loading the async calls!" << std::endl;
 	for (int i = 0; i < one.capacity(); i++) {
 		if (debug) {
 		    std::cout << "Got to " << i << " in data assignment!" << std::endl;
 
 		}
-		std::vector< hpx::lcos::future< double > >* f = futuresParent.at(i);
 		if(debug)
-			std::cout << "Accessed top level of futuresParent successfully! f.size() = " << f->size() << std::endl;
+			std::cout << "Accessed top level of futuresParent successfully! f.size() = " << std::endl;
 		for (int j = 0; j < two.at(0).capacity(); j++) {
-			hpx::lcos::future<double>* value = &f->at(j); // so this is the problem! Why?
 			if (debug)
 				std::cout << "Accessed future level of futuresParent successfully!" << std::endl;
-			double real_value = value->get();
 			if (debug)
 				std::cout << "Accessed lowest level of futuresParent successfully!" << std::endl;
-			//data.at(i).push_back(futuresParent.at(i)->at(j).get()); //futuresParent.at(i)->at(j).get()
+			data.at(i).push_back(futuresParent.at(i).at(j).get()); //futuresParent.at(i)->at(j).get()
 			//std::cout << "\tHere's data[i][j]: " << data.at(i).at(j) << 
 			//std::endl;
 		}
