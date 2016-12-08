@@ -1,3 +1,13 @@
-﻿     Creating library C:/Users/Maxwell/Documents/CCT/matrix_matrix_hpx_single_file_version/build/Debug/matrix_matrix_hpx_single_file_exe.lib and object C:/Users/Maxwell/Documents/CCT/matrix_matrix_hpx_single_file_version/build/Debug/matrix_matrix_hpx_single_file_exe.exp
-  matrix_matrix_hpx_single_file_exe_exe.vcxproj -> C:\Users\Maxwell\Documents\CCT\matrix_matrix_hpx_single_file_version\build\Debug\matrix_matrix_hpx_single_file_exe.exe
-  matrix_matrix_hpx_single_file_exe_exe.vcxproj -> C:/Users/Maxwell/Documents/CCT/matrix_matrix_hpx_single_file_version/build/Debug/matrix_matrix_hpx_single_file_exe.pdb (Full PDB)
+﻿  main.cpp
+  NOTE: Use of this header (bool_trait_def.hpp) is deprecated
+  NOTE: Use of this header (template_arity_spec.hpp) is deprecated
+  NOTE: Use of this header (template_arity_spec.hpp) is deprecated
+C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\source\main.cpp(271): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+     Creating library C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/Debug/matrix_matrix_hpx_single_file_exe.lib and object C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/Debug/matrix_matrix_hpx_single_file_exe.exp
+hpx_initd.lib(hpx_main.obj) : warning LNK4099: PDB 'hpx_init.pdb' was not found with 'hpx_initd.lib(hpx_main.obj)' or at 'C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\Debug\hpx_init.pdb'; linking object as if no debug info
+hpx_initd.lib(hpx_main_argc_argv.obj) : warning LNK4099: PDB 'hpx_init.pdb' was not found with 'hpx_initd.lib(hpx_main_argc_argv.obj)' or at 'C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\Debug\hpx_init.pdb'; linking object as if no debug info
+hpx_initd.lib(hpx_main_variables_map.obj) : warning LNK4099: PDB 'hpx_init.pdb' was not found with 'hpx_initd.lib(hpx_main_variables_map.obj)' or at 'C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\Debug\hpx_init.pdb'; linking object as if no debug info
+hpx_initd.lib(hpx_main_winsocket.obj) : warning LNK4099: PDB 'hpx_init.pdb' was not found with 'hpx_initd.lib(hpx_main_winsocket.obj)' or at 'C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\Debug\hpx_init.pdb'; linking object as if no debug info
+hpx_initd.lib(main.obj) : warning LNK4099: PDB 'hpx_init.pdb' was not found with 'hpx_initd.lib(main.obj)' or at 'C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\Debug\hpx_init.pdb'; linking object as if no debug info
+  matrix_matrix_hpx_single_file_exe_exe.vcxproj -> C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\Debug\matrix_matrix_hpx_single_file_exe.exe
+  matrix_matrix_hpx_single_file_exe_exe.vcxproj -> C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/Debug/matrix_matrix_hpx_single_file_exe.pdb (Full PDB)

@@ -9,6 +9,7 @@
 #include <hpx/include/actions.hpp>
 #include <hpx/include/components.hpp>
 #include <hpx/include/iostreams.hpp>
+#include <hpx/parallel/algorithms/for_loop.hpp>
 
 #include <boost/format.hpp>
 #include <boost/container/vector.hpp>
@@ -115,13 +116,8 @@ std::vector< std::vector < double > > matrix_foreman_serial(
 	std::vector< std::vector< 
 	    hpx::lcos::shared_future< double > >  > futuresParent;
 	std::cout << "Matrix Foreman Loading:" << std::endl;
-	for (int i = 0; i < one.capacity(); i++)
-	{
-		//Try making futuresParent not a vector of vectors, maybe just futures
-		//-- Turns out this works
-		//Try making futures just an array of futures, see if it's a container 
-		//thing,
-		//just a vector thing, etc. etc. --Turns out this also works
+	
+	for (int i = 0; i < one.capacity();i++){	
 		std::vector< double > k;
 		k.reserve(two.at(0).capacity());
 		data.push_back(k);
@@ -132,12 +128,6 @@ std::vector< std::vector < double > > matrix_foreman_serial(
 		{
 			futuresParent.at(i).push_back(hpx::async< dot_product_action >(here,
 				one.at(i), get_col(two, j)));
-		}
-		if (debug) {
-			std::cout << "Inside loading, i = " << i << " And f.size() = " << futuresParent.at(i).size() << std::endl;
-		    if(i > 0)
-			    std::cout << "Inside loading, i = " << i-1 << " And f.size() = " << futuresParent.at(i-1).size() << std::endl;
-
 		}
 
 
@@ -155,24 +145,36 @@ std::vector< std::vector < double > > matrix_foreman_serial(
 		}
 
 	}
-	if(debug)
-		std::cout << "f.size() = " << futuresParent.at(0).size() << std::endl;
-	std::cout << "Finshed loading the async calls!" << std::endl;
-	for (int i = 0; i < one.capacity(); i++) {
+	/*
+	    //So try making async call then get right after, 11s
+		try never calling get, 7s
+		then try doing parallel for, with async then get right after
 		if (debug) {
-		    std::cout << "Got to " << i << " in data assignment!" << std::endl;
+			std::cout << "Inside loading, i = " << i << " And f.size() = " << futuresParent.at(i).size() << std::endl;
+		    if(i > 0)
+			    std::cout << "Inside loading, i = " << i-1 << " And f.size() = " << futuresParent.at(i-1).size() << std::endl;
 
 		}
-		if(debug)
+	if(debug)
+		std::cout << "f.size() = " << futuresParent.at(0).size() << std::endl;
+	
+	*/
+	std::cout << "Finshed loading the async calls!" << std::endl;
+	for (int i = 0; i < one.capacity(); i++) {
+		hpx::wait_all(futuresParent.at(i));
+		if (debug) {
+		    std::cout << "Got to " << i << " in data assignment!" << std::endl;
 			std::cout << "Accessed top level of futuresParent successfully! f.size() = " << std::endl;
+
+		}
+		
 		for (int j = 0; j < two.at(0).capacity(); j++) {
-			if (debug)
+			if (debug) {
 				std::cout << "Accessed future level of futuresParent successfully!" << std::endl;
-			if (debug)
 				std::cout << "Accessed lowest level of futuresParent successfully!" << std::endl;
-			data.at(i).push_back(futuresParent.at(i).at(j).get()); //futuresParent.at(i)->at(j).get()
-			//std::cout << "\tHere's data[i][j]: " << data.at(i).at(j) << 
-			//std::endl;
+			}
+			
+			//data.at(i).push_back(futuresParent.at(i).at(j).get()); 
 		}
 	}
 	return data;

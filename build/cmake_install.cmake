@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/Maxwell/Documents/CCT/matrix_matrix_hpx_single_file_version/source
+# Install script for directory: C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/source
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Users/Maxwell/Documents/CCT/matrix_matrix_hpx_single_file_version/install")
+  set(CMAKE_INSTALL_PREFIX "C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -29,13 +29,13 @@ endif()
 
 if("${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Dd][Ee][Bb][Uu][Gg])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "C:/Users/Maxwell/Documents/CCT/matrix_matrix_hpx_single_file_version/build/Debug/matrix_matrix_hpx_single_file_exe.exe")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/Debug/matrix_matrix_hpx_single_file_exe.exe")
   elseif("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ee][Aa][Ss][Ee])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "C:/Users/Maxwell/Documents/CCT/matrix_matrix_hpx_single_file_version/build/Release/matrix_matrix_hpx_single_file_exe.exe")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/Release/matrix_matrix_hpx_single_file_exe.exe")
   elseif("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Mm][Ii][Nn][Ss][Ii][Zz][Ee][Rr][Ee][Ll])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "C:/Users/Maxwell/Documents/CCT/matrix_matrix_hpx_single_file_version/build/MinSizeRel/matrix_matrix_hpx_single_file_exe.exe")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/MinSizeRel/matrix_matrix_hpx_single_file_exe.exe")
   elseif("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ww][Ii][Tt][Hh][Dd][Ee][Bb][Ii][Nn][Ff][Oo])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "C:/Users/Maxwell/Documents/CCT/matrix_matrix_hpx_single_file_version/build/RelWithDebInfo/matrix_matrix_hpx_single_file_exe.exe")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/RelWithDebInfo/matrix_matrix_hpx_single_file_exe.exe")
   endif()
 endif()
 
@@ -47,5 +47,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/Maxwell/Documents/CCT/matrix_matrix_hpx_single_file_version/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
