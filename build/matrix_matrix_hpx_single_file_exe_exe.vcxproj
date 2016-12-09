@@ -86,7 +86,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <AdditionalOptions> -Zc:inline -Zc:throwingNew -bigobj %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>C:\Users\Maxwell\Documents\LSU\CCT\HPX\install\include;C:\Users\Maxwell\Documents\LSU\CCT\HPX\install\include\hpx\external;C:\Users\Maxwell\Downloads\Boost\boost_1_61_0;C:\Users\Maxwell\Documents\LSU\CCT\HWLOC\hwloc\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Maxwell\Documents\LSU\CCT\HPX-SOURCE\hpx-master\hpx-master\tests\unit\parallel\container_algorithms;C:\Users\Maxwell\Documents\LSU\CCT\HPX\install\include;C:\Users\Maxwell\Documents\LSU\CCT\HPX\install\include\hpx\external;C:\Users\Maxwell\Downloads\Boost\boost_1_61_0;C:\Users\Maxwell\Documents\LSU\CCT\HWLOC\hwloc\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Debug/</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <CompileAs>CompileAsCpp</CompileAs>

@@ -2,12 +2,54 @@
   NOTE: Use of this header (bool_trait_def.hpp) is deprecated
   NOTE: Use of this header (template_arity_spec.hpp) is deprecated
   NOTE: Use of this header (template_arity_spec.hpp) is deprecated
-C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\source\main.cpp(271): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-     Creating library C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/Debug/matrix_matrix_hpx_single_file_exe.lib and object C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/Debug/matrix_matrix_hpx_single_file_exe.exp
-hpx_initd.lib(hpx_main.obj) : warning LNK4099: PDB 'hpx_init.pdb' was not found with 'hpx_initd.lib(hpx_main.obj)' or at 'C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\Debug\hpx_init.pdb'; linking object as if no debug info
-hpx_initd.lib(hpx_main_argc_argv.obj) : warning LNK4099: PDB 'hpx_init.pdb' was not found with 'hpx_initd.lib(hpx_main_argc_argv.obj)' or at 'C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\Debug\hpx_init.pdb'; linking object as if no debug info
-hpx_initd.lib(hpx_main_variables_map.obj) : warning LNK4099: PDB 'hpx_init.pdb' was not found with 'hpx_initd.lib(hpx_main_variables_map.obj)' or at 'C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\Debug\hpx_init.pdb'; linking object as if no debug info
-hpx_initd.lib(hpx_main_winsocket.obj) : warning LNK4099: PDB 'hpx_init.pdb' was not found with 'hpx_initd.lib(hpx_main_winsocket.obj)' or at 'C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\Debug\hpx_init.pdb'; linking object as if no debug info
-hpx_initd.lib(main.obj) : warning LNK4099: PDB 'hpx_init.pdb' was not found with 'hpx_initd.lib(main.obj)' or at 'C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\Debug\hpx_init.pdb'; linking object as if no debug info
-  matrix_matrix_hpx_single_file_exe_exe.vcxproj -> C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\Debug\matrix_matrix_hpx_single_file_exe.exe
-  matrix_matrix_hpx_single_file_exe_exe.vcxproj -> C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/Debug/matrix_matrix_hpx_single_file_exe.pdb (Full PDB)
+C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\source\main.cpp(236): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\source\main.cpp(138): error C2679: binary '<<': no operator found which takes a right-hand operand of type 'std::vector<double,std::allocator<_Ty>>' (or there is no acceptable conversion)
+          with
+          [
+              _Ty=double
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\ostream(497): note: could be 'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::basic_streambuf<char,std::char_traits<char>> *)'
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\ostream(477): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(const void *)'
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\ostream(457): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(long double)'
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\ostream(437): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(double)'
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\ostream(417): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(float)'
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\ostream(396): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned __int64)'
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\ostream(376): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(__int64)'
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\ostream(355): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned long)'
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\ostream(335): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(long)'
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\ostream(315): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned int)'
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\ostream(290): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(int)'
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\ostream(270): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(unsigned short)'
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\ostream(236): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(short)'
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\ostream(216): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(bool)'
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\ostream(209): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::ios_base &(__cdecl *)(std::ios_base &))'
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\ostream(202): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::basic_ios<char,std::char_traits<char>> &(__cdecl *)(std::basic_ios<char,std::char_traits<char>> &))'
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\ostream(196): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::basic_ostream<char,std::char_traits<char>>::operator <<(std::basic_ostream<char,std::char_traits<char>> &(__cdecl *)(std::basic_ostream<char,std::char_traits<char>> &))'
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\ostream(694): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<char,std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,const char *)'
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\ostream(741): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<char,std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,char)'
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\ostream(779): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,const char *)'
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\ostream(826): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,char)'
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\ostream(952): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,const signed char *)'
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\ostream(959): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,signed char)'
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\ostream(966): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,const unsigned char *)'
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\ostream(973): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,unsigned char)'
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\ostream(983): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<char,std::char_traits<char>,std::vector<double,std::allocator<_Ty>>>(std::basic_ostream<char,std::char_traits<char>> &&,const std::vector<_Ty,std::allocator<_Ty>> &)'
+          with
+          [
+              _Ty=double
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\ostream(1021): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<char,std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,const std::error_code &)'
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\thread(253): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<char,std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,std::thread::id)'
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\random(2800): note: or       'std::basic_ostream<char,std::char_traits<char>> &std::operator <<<char,std::char_traits<char>>(std::basic_ostream<char,std::char_traits<char>> &,const std::bernoulli_distribution &)'
+  C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\source\main.cpp(138): note: while trying to match the argument list '(std::ostream, std::vector<double,std::allocator<_Ty>>)'
+          with
+          [
+              _Ty=double
+          ]
+  C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\source\main.cpp(268): note: see reference to function template instantiation 'void test_for_loop<const hpx::parallel::v1::sequential_execution_policy&,std::forward_iterator_tag>(ExPolicy,IteratorTag)' being compiled
+          with
+          [
+              ExPolicy=const hpx::parallel::v1::sequential_execution_policy &,
+              IteratorTag=std::forward_iterator_tag
+          ]
+C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\source\main.cpp(138): error C2088: '<<': illegal for class

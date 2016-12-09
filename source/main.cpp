@@ -1,9 +1,7 @@
-// matrix_mult_no_pntrs.cpp : Defines the entry point for the 
-// console application.
+// matrix_mult_no_pntrs.cpp : Defines the entry point for the console application.
 //
 
 //#include "stdafx.h"
-
 #include <hpx/hpx_main.hpp>
 #include <hpx/include/lcos.hpp>
 #include <hpx/include/actions.hpp>
@@ -14,17 +12,34 @@
 #include <boost/format.hpp>
 #include <boost/container/vector.hpp>
 
-#include <cstddef>
 #include <list>
 #include <set>
 #include <mutex>
 #include <iostream>
-#include <string>
 #include <istream>
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h>
+
+#include <hpx/hpx_init.hpp>
+#include <hpx/hpx.hpp>
+#include <hpx/util/lightweight_test.hpp>
+
+#include <hpx/include/parallel_for_loop.hpp>
+
+#include <algorithm>
+#include <cstddef>
+#include <numeric>
+#include <string>
+#include <utility>
 #include <vector>
+
+#include "test_utils.hpp"
+
+///////////////////////////////////////////////////////////////////////////////
+
+
+
 
 
 bool debug = false;
@@ -34,8 +49,6 @@ std::vector<double> get_col(const std::vector< std::vector<double> >& data,
 
 double dot_product(const std::vector<double> row,
 	const std::vector<double> columns);
-
-
 
 void usage(char* func_name) {
 	std::cout << "usage: " << func_name << " double1 double2 double3 double4"
@@ -72,160 +85,11 @@ std::vector< std::vector<double> > matrix_gen(int dim_on, int dim_tw) {
 	return data;
 }
 
-std::vector< double > matrix_worker_serial(
-	std::vector< double > one, std::vector< std::vector< double > >
-	two)
-{
-	
-	std::vector< double > values;
-	for (int j = 0; j < two.at(0).capacity(); j++)
-	{
-		values.push_back(dot_product(one, get_col(two, j)));
-	}
-
-	return values;
-}
-HPX_PLAIN_ACTION(matrix_worker_serial, matrix_worker_serial_action);
-
-std::vector< hpx::lcos::future< double > > matrix_worker(
-	std::vector< double > one, std::vector< std::vector< double > >
-	two) 
-{	
-	hpx::naming::id_type const here = hpx::find_here();	
-	std::vector< hpx::lcos::future< double > > futures;
-	for (int j = 0; j < two.at(0).capacity(); j++)
-	{
-		futures.push_back(hpx::async<dot_product_action>(here,
-			one, get_col(two, j)));		
-	}
-	
-	return futures;
-}
-HPX_PLAIN_ACTION(matrix_worker, matrix_worker_action);
-
-
-
-std::vector< std::vector < double > > matrix_foreman_serial(
-	std::vector< std::vector< double > >& one, 
-	std::vector< std::vector< double > >&	two)
-{
-	bool twenty_five = false, fifty = false, seventy_five = false;
-	hpx::naming::id_type here = hpx::find_here();
-	std::vector< std::vector< double > > data;
-	data.reserve(one.capacity());
-	std::vector< std::vector< 
-	    hpx::lcos::shared_future< double > >  > futuresParent;
-	std::cout << "Matrix Foreman Loading:" << std::endl;
-	
-	for (int i = 0; i < one.capacity();i++){	
-		std::vector< double > k;
-		k.reserve(two.at(0).capacity());
-		data.push_back(k);
-		
-		std::vector< hpx::lcos::shared_future<double> > futures;
-		futuresParent.push_back(futures);
-		for (int j = 0; j < two.at(0).capacity(); j++)
-		{
-			futuresParent.at(i).push_back(hpx::async< dot_product_action >(here,
-				one.at(i), get_col(two, j)));
-		}
-
-
-		if ((double)i / one.capacity() >= 0.25 && !twenty_five) {
-			std::cout << "25%..." << std::endl;
-			twenty_five = true;
-		}
-		if ((double)i / one.capacity() >= 0.5 && !fifty) {
-			std::cout << "50%..." << std::endl;
-			fifty = true;
-		}
-		if ((double)i / one.capacity() >= 0.75 && !seventy_five) {
-			std::cout << "75%..." << std::endl;
-			seventy_five = true;
-		}
-
-	}
-	/*
-	    //So try making async call then get right after, 11s
-		try never calling get, 7s
-		then try doing parallel for, with async then get right after
-		if (debug) {
-			std::cout << "Inside loading, i = " << i << " And f.size() = " << futuresParent.at(i).size() << std::endl;
-		    if(i > 0)
-			    std::cout << "Inside loading, i = " << i-1 << " And f.size() = " << futuresParent.at(i-1).size() << std::endl;
-
-		}
-	if(debug)
-		std::cout << "f.size() = " << futuresParent.at(0).size() << std::endl;
-	
-	*/
-	std::cout << "Finshed loading the async calls!" << std::endl;
-	for (int i = 0; i < one.capacity(); i++) {
-		hpx::wait_all(futuresParent.at(i));
-		if (debug) {
-		    std::cout << "Got to " << i << " in data assignment!" << std::endl;
-			std::cout << "Accessed top level of futuresParent successfully! f.size() = " << std::endl;
-
-		}
-		
-		for (int j = 0; j < two.at(0).capacity(); j++) {
-			if (debug) {
-				std::cout << "Accessed future level of futuresParent successfully!" << std::endl;
-				std::cout << "Accessed lowest level of futuresParent successfully!" << std::endl;
-			}
-			
-			//data.at(i).push_back(futuresParent.at(i).at(j).get()); 
-		}
-	}
-	return data;
-}
-
-
-/*
-std::vector< std::vector <double> > matrix_foreman(
-	std::vector< std::vector<double> >& one, 
-	std::vector< std::vector<double> >&	two) 
-{
-	hpx::naming::id_type here = hpx::find_here();
-	std::vector< std::vector<double> > data;
-	data.reserve(one.capacity());
-	std::vector< hpx::lcos::future< std::vector< hpx::lcos::future<double> 
-	  > > > futures;
-	for (int i = 0; i < one.capacity(); i++) 
-	{
-		std::vector<double> k;
-		k.reserve(two.at(0).capacity());
-		data.push_back(k);
-		matrix_worker_action mat;
-		futures.push_back(hpx::async<matrix_worker_action>
-			( here, one.at(i), two));
-	}
-	//std::cout << "Got past calling matrix_worker_action!" << std::endl;
-	for (int i = 0; i < one.capacity(); i++) {
-		//std::cout << "Got to " << i << " in data assignment!" << std::endl;
-		std::vector<hpx::lcos::future<double> > vick = futures.at(i).get(); 
-		for (int j = 0; j < two.at(0).capacity(); j++) {			
-			//std::cout << "\tGot to " << j << " in internal for-loop for data 
-			assignment!" << std::endl;
-			
-			double f = vick.at(j).get();                     
-			//I should try doing f = vick.at(j), see what happens
-			//std::cout << "\tHere's f: " << f << std::endl;			
-			data.at(i).push_back( f );
-			//std::cout << "\tHere's data[i][j]: " << data.at(i).at(j) 
-			<< std::endl;
-		}
-	}
-	return data;
-}
-*/
-
-
 std::vector< std::vector < double > >
-  rand_filler(int dim_one, int dim_two) {
+rand_filler(int dim_one, int dim_two) {
 	std::vector< std::vector< double > > data =
 		matrix_gen(dim_one, dim_two);
-	for(int i = 0; i < data.capacity(); i++) {
+	for (int i = 0; i < data.capacity(); i++) {
 		data.at(0);
 		data.at(i).clear();
 		//std::cout << "[";
@@ -243,36 +107,138 @@ HPX_PLAIN_ACTION(rand_filler, rand_filler_action);
 
 
 
-
-
-std::vector< double > get_col( const std::vector< std::vector< double > >& data,
-	int col) 
+template <typename ExPolicy, typename IteratorTag>
+void test_for_loop(ExPolicy && policy, IteratorTag)
 {
-	std::vector< double > column;
-	column.reserve(data.capacity());
-	for (int i = 0; i < data.capacity(); i++) 
-	{
-		column.push_back(data.at(i).at(col));
+	static_assert(
+		hpx::parallel::is_execution_policy<ExPolicy>::value,
+		"hpx::parallel::is_execution_policy<ExPolicy>::value");
+
+	typedef std::vector<std::vector<double>>::iterator base_iterator;
+	typedef test::test_iterator<base_iterator, IteratorTag> iterator;
+	//IteratorTag = std::forward_iterator_tag()
+	//iterator = test::test_iterator<std::vector<std::vector<double>>::iterator, std::forward_iterator_tag()>
+	std::vector< std::vector<double> > c;
+	for (int i = 0; i < 10; i++) {
+		std::vector<double> k;
+		for (int j = i; j < 10; j++) {
+			k.push_back(j);
+		}
+		c.push_back(k);
 	}
-	return column;
+
+
+	std::cout << c.size() << std::endl;
+	int f;
+	std::cin >> f;
+	hpx::parallel::for_loop(
+		std::forward<ExPolicy>(policy),
+		iterator(boost::begin(c)), iterator(boost::end(c)),
+		[](iterator it)
+	{
+		std::cout << *it. << std::endl; // Compiler complains if I do this that it can't cout type std::vector<double>, but won't 
+		 // let me use the methods of std::vector<double> otherwise, why?
+		
+		
+	});
+	std::cout << "After par-for, c.size() = " << c.size() << std::endl;
+	for (int i = 0; i < c.size(); i++) {
+		std::cout << c.at(0).at(0) << std::endl;
+	}
+	std::cin >> f;
+
 }
 
 
+///////////////////////////////////////////////////////////////////////////////
 
-int main(int argc, char* argv[])
+
+template <typename ExPolicy, typename IteratorTag>
+std::vector< std::vector < double > > matrix_foreman_serial(
+	std::vector< std::vector< double > >& one,
+	std::vector< std::vector< double > >& two,
+	ExPolicy && policy, IteratorTag)
 {
+	static_assert(
+		hpx::parallel::is_execution_policy<ExPolicy>::value,
+		"hpx::parallel::is_execution_policy<ExPolicy>::value");
 
+	typedef std::vector<double>::iterator base_iterator;
+	typedef test::test_iterator<base_iterator, IteratorTag> iterator;
+	bool twenty_five = false, fifty = false, seventy_five = false;
+	hpx::naming::id_type here = hpx::find_here();
+	std::vector< std::vector< double > > data;
+	data.reserve(one.capacity());
+	std::vector< std::vector< double > > futuresParent;
+	std::cout << "Matrix Foreman Loading:" << std::endl;
+	std::vector<double> testing123;
+	for (int i = 0; i < 10; i++) {
+		testing123.push_back(i);
+	}
+
+	hpx::parallel::for_loop(
+		std::forward<ExPolicy>(policy),
+		iterator(boost::begin(testing123)), iterator(boost::end(testing123)),
+		[one, two, &data, &futuresParent](iterator it)
+	{
+		std::vector<double> bob;
+		
+		std::cout << bob.at(0);
+		
+	});
+
+
+	/*
+	//So try making async call then get right after, 11s
+	try never calling get, 7s
+	then try doing parallel for, with async then get right after
+	if (debug) {
+	std::cout << "Inside loading, i = " << i << " And f.size() = " << futuresParent.at(i).size() << std::endl;
+	if(i > 0)
+	std::cout << "Inside loading, i = " << i-1 << " And f.size() = " << futuresParent.at(i-1).size() << std::endl;
+
+	}
+	if(debug)
+	std::cout << "f.size() = " << futuresParent.at(0).size() << std::endl;
+
+	*/
+	std::cout << "Finshed loading the async calls!" << std::endl;
+	for (int i = 0; i < one.capacity(); i++) {
+		//hpx::wait_all(futuresParent.at(i));
+		if (debug) {
+			std::cout << "Got to " << i << " in data assignment!" << std::endl;
+			std::cout << "Accessed top level of futuresParent successfully! f.size() = " << std::endl;
+
+		}
+
+		for (int j = 0; j < two.at(0).capacity(); j++) {
+			if (debug) {
+				std::cout << "Accessed future level of futuresParent successfully!" << std::endl;
+				std::cout << "Accessed lowest level of futuresParent successfully!" << std::endl;
+			}
+
+			data.at(i).push_back(futuresParent.at(i).at(j));
+		}
+	}
+	return data;
+}
+///////////////////////////////////////////////////////////////////////////////
+
+int main(int argc, char* argv[]) {
+	
 	if (argc != 5) {
 		usage(argv[0]);
 		std::string input;
 		std::getline(std::cin, input);
 		return 0;
 	}
+	
+	
 	srand(time(NULL));
 	char* end;
 
-	const int first_matrix_dim_one  = strtol(argv[1], &end, 10);
-	const int first_matrix_dim_two  = strtol(argv[2], &end, 10);
+	const int first_matrix_dim_one = strtol(argv[1], &end, 10);
+	const int first_matrix_dim_two = strtol(argv[2], &end, 10);
 
 	const int second_matrix_dim_one = strtol(argv[3], &end, 10);
 	const int second_matrix_dim_two = strtol(argv[4], &end, 10);
@@ -283,40 +249,57 @@ int main(int argc, char* argv[])
 		std::getline(std::cin, input);
 		return 0;
 	}
-	
-	if(debug)
-	    std::cout << first_matrix_dim_one << " " << first_matrix_dim_two << 
-	    std::endl;
-	std::vector< std::vector< double > > first_matrix = 
-		rand_filler(first_matrix_dim_one, first_matrix_dim_two);
-	
+
 	if (debug)
-	    std::cout << "After first rand_filler" << std::endl;
+		std::cout << first_matrix_dim_one << " " << first_matrix_dim_two <<
+		std::endl;
+	std::vector< std::vector< double > > first_matrix =
+		rand_filler(first_matrix_dim_one, first_matrix_dim_two);
+
+	if (debug)
+		std::cout << "After first rand_filler" << std::endl;
 
 
-	std::vector< std::vector< double > > second_matrix = 
+	std::vector< std::vector< double > > second_matrix =
 		rand_filler(second_matrix_dim_one, second_matrix_dim_two);
 
-	if(debug)
+	if (debug)
 		std::cout << "After second rand_filler" << std::endl;
-	
-	
-	std::vector< std::vector< double > > new_matrix = matrix_foreman_serial(
-		first_matrix, second_matrix);
+
+	test_for_loop(hpx::parallel::seq, std::forward_iterator_tag());
 	/*
-	
+	std::vector< std::vector< double > > new_matrix = matrix_foreman_serial(
+		first_matrix, second_matrix, hpx::parallel::seq, std::forward_iterator_tag());
+
 	for (int i = 0; i < new_matrix.capacity(); i++) {
-		std::cout << "[ ";
-		for (int j = 0; j < new_matrix.at(0).capacity(); j++) {
-			std::cout << new_matrix.at(i).at(j) << " " ;
-		}
-		std::cout << "]" << std::endl;
+	std::cout << "[ ";
+	for (int j = 0; j < new_matrix.at(0).capacity(); j++) {
+	std::cout << new_matrix.at(i).at(j) << " " ;
 	}
-	
+	std::cout << "]" << std::endl;
+	}
+
 	*/
-	
+
 	std::cout << "Finished!" << std::endl;
 	std::string input;
 	std::getline(std::cin, input);
 	return 0;
+
+
 }
+
+
+std::vector< double > get_col(const std::vector< std::vector< double > >& data,
+	int col)
+{
+	std::vector< double > column;
+	column.reserve(data.capacity());
+	for (int i = 0; i < data.capacity(); i++)
+	{
+		column.push_back(data.at(i).at(col));
+	}
+	return column;
+}
+
+
