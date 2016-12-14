@@ -92,7 +92,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELEASE:STRING=/INCREMENTAL:NO
 //Flags used by the linker during Release with Debug Info builds.
 CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO:STRING=/debug /INCREMENTAL
 
-CMAKE_MODULE_PATH:PATH=C:/Users/Maxwell/Documents/LSU/CCT/HPX/install/lib/cmake/HPX
+CMAKE_MODULE_PATH:PATH=C:/Users/Maxwell/Documents/LSU/CCT/HPX-BUILT/install/lib/cmake/HPX
 
 //Value Computed by CMake
 CMAKE_PROJECT_NAME:STATIC=matrix_matrix_hpx_single_file
@@ -164,7 +164,7 @@ HPX_C_COMPILER_ID:STRING=MSVC
 //C compiler version for HPX
 HPX_C_COMPILER_VERSION:STRING=19.0.23506.0
 
-HPX_DIR:PATH=C:/Users/Maxwell/Documents/LSU/CCT/HPX/install/lib/cmake/HPX
+HPX_DIR:PATH=C:/Users/Maxwell/Documents/LSU/CCT/HPX-BUILT/install/lib/cmake/HPX
 
 //Fortran compiler for HPX
 HPX_Fortran_COMPILER:STRING=

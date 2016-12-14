@@ -9,7 +9,7 @@ The output was:
 Microsoft (R) Build Engine version 14.0.24723.2
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 12/8/2016 4:32:46 PM.
+Build started 12/12/2016 5:02:01 PM.
 The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
 Project "C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\3.6.2\CompilerIdCXX\CompilerIdCXX.vcxproj" on node 1 (default targets).
 PrepareForBuild:
@@ -36,7 +36,7 @@ Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:01.09
+Time Elapsed 00:00:00.71
 
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -48,81 +48,81 @@ The CXX compiler identification is MSVC, found in "C:/Users/Maxwell/Documents/LS
 Determining if the CXX compiler works passed with the following output:
 Change Dir: C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_def08.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_bac6d.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
 Microsoft (R) Build Engine version 14.0.24723.2
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 12/8/2016 4:32:48 PM.
+Build started 12/12/2016 5:02:02 PM.
 The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
-Project "C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\cmTC_def08.vcxproj" on node 1 (default targets).
+Project "C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\cmTC_bac6d.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_def08.dir\Debug\".
+  Creating directory "cmTC_bac6d.dir\Debug\".
   Creating directory "C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_def08.dir\Debug\cmTC_def08.tlog\".
+  Creating directory "cmTC_bac6d.dir\Debug\cmTC_bac6d.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_def08.dir\Debug\cmTC_def08.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_bac6d.dir\Debug\cmTC_bac6d.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_def08.dir\Debug\\" /Fd"cmTC_def08.dir\Debug\vc140.pdb" /Gd /TP /errorReport:queue C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\testCXXCompiler.cxx
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_bac6d.dir\Debug\\" /Fd"cmTC_bac6d.dir\Debug\vc140.pdb" /Gd /TP /errorReport:queue C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\testCXXCompiler.cxx
   Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x64
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_def08.dir\Debug\\" /Fd"cmTC_def08.dir\Debug\vc140.pdb" /Gd /TP /errorReport:queue C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\testCXXCompiler.cxx
+  cl /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_bac6d.dir\Debug\\" /Fd"cmTC_bac6d.dir\Debug\vc140.pdb" /Gd /TP /errorReport:queue C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\testCXXCompiler.cxx
   
   testCXXCompiler.cxx
 Link:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\Debug\cmTC_def08.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/CMakeFiles/CMakeTmp/Debug/cmTC_def08.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/CMakeFiles/CMakeTmp/Debug/cmTC_def08.lib" /MACHINE:X64  /machine:x64 cmTC_def08.dir\Debug\testCXXCompiler.obj
-  cmTC_def08.vcxproj -> C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\Debug\cmTC_def08.exe
-  cmTC_def08.vcxproj -> C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/CMakeFiles/CMakeTmp/Debug/cmTC_def08.pdb (Full PDB)
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\Debug\cmTC_bac6d.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/CMakeFiles/CMakeTmp/Debug/cmTC_bac6d.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/CMakeFiles/CMakeTmp/Debug/cmTC_bac6d.lib" /MACHINE:X64  /machine:x64 cmTC_bac6d.dir\Debug\testCXXCompiler.obj
+  cmTC_bac6d.vcxproj -> C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\Debug\cmTC_bac6d.exe
+  cmTC_bac6d.vcxproj -> C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/CMakeFiles/CMakeTmp/Debug/cmTC_bac6d.pdb (Full PDB)
 FinalizeBuildStatus:
-  Deleting file "cmTC_def08.dir\Debug\cmTC_def08.tlog\unsuccessfulbuild".
-  Touching "cmTC_def08.dir\Debug\cmTC_def08.tlog\cmTC_def08.lastbuildstate".
-Done Building Project "C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\cmTC_def08.vcxproj" (default targets).
+  Deleting file "cmTC_bac6d.dir\Debug\cmTC_bac6d.tlog\unsuccessfulbuild".
+  Touching "cmTC_bac6d.dir\Debug\cmTC_bac6d.tlog\cmTC_bac6d.lastbuildstate".
+Done Building Project "C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\cmTC_bac6d.vcxproj" (default targets).
 
 Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:01.22
+Time Elapsed 00:00:00.87
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_38dd2.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_b91c1.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
 Microsoft (R) Build Engine version 14.0.24723.2
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 12/8/2016 4:32:49 PM.
+Build started 12/12/2016 5:02:03 PM.
 The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
-Project "C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\cmTC_38dd2.vcxproj" on node 1 (default targets).
+Project "C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\cmTC_b91c1.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_38dd2.dir\Debug\".
+  Creating directory "cmTC_b91c1.dir\Debug\".
   Creating directory "C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_38dd2.dir\Debug\cmTC_38dd2.tlog\".
+  Creating directory "cmTC_b91c1.dir\Debug\cmTC_b91c1.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_38dd2.dir\Debug\cmTC_38dd2.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_b91c1.dir\Debug\cmTC_b91c1.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_38dd2.dir\Debug\\" /Fd"cmTC_38dd2.dir\Debug\vc140.pdb" /Gd /TP /errorReport:queue "C:\Program Files\CMake\share\cmake-3.6\Modules\CMakeCXXCompilerABI.cpp"
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_b91c1.dir\Debug\\" /Fd"cmTC_b91c1.dir\Debug\vc140.pdb" /Gd /TP /errorReport:queue "C:\Program Files\CMake\share\cmake-3.6\Modules\CMakeCXXCompilerABI.cpp"
   Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x64
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_38dd2.dir\Debug\\" /Fd"cmTC_38dd2.dir\Debug\vc140.pdb" /Gd /TP /errorReport:queue "C:\Program Files\CMake\share\cmake-3.6\Modules\CMakeCXXCompilerABI.cpp"
+  cl /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_b91c1.dir\Debug\\" /Fd"cmTC_b91c1.dir\Debug\vc140.pdb" /Gd /TP /errorReport:queue "C:\Program Files\CMake\share\cmake-3.6\Modules\CMakeCXXCompilerABI.cpp"
   
   CMakeCXXCompilerABI.cpp
 Link:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\Debug\cmTC_38dd2.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/CMakeFiles/CMakeTmp/Debug/cmTC_38dd2.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/CMakeFiles/CMakeTmp/Debug/cmTC_38dd2.lib" /MACHINE:X64  /machine:x64 cmTC_38dd2.dir\Debug\CMakeCXXCompilerABI.obj
-  cmTC_38dd2.vcxproj -> C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\Debug\cmTC_38dd2.exe
-  cmTC_38dd2.vcxproj -> C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/CMakeFiles/CMakeTmp/Debug/cmTC_38dd2.pdb (Full PDB)
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\Debug\cmTC_b91c1.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/CMakeFiles/CMakeTmp/Debug/cmTC_b91c1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/CMakeFiles/CMakeTmp/Debug/cmTC_b91c1.lib" /MACHINE:X64  /machine:x64 cmTC_b91c1.dir\Debug\CMakeCXXCompilerABI.obj
+  cmTC_b91c1.vcxproj -> C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\Debug\cmTC_b91c1.exe
+  cmTC_b91c1.vcxproj -> C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/CMakeFiles/CMakeTmp/Debug/cmTC_b91c1.pdb (Full PDB)
 FinalizeBuildStatus:
-  Deleting file "cmTC_38dd2.dir\Debug\cmTC_38dd2.tlog\unsuccessfulbuild".
-  Touching "cmTC_38dd2.dir\Debug\cmTC_38dd2.tlog\cmTC_38dd2.lastbuildstate".
-Done Building Project "C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\cmTC_38dd2.vcxproj" (default targets).
+  Deleting file "cmTC_b91c1.dir\Debug\cmTC_b91c1.tlog\unsuccessfulbuild".
+  Touching "cmTC_b91c1.dir\Debug\cmTC_b91c1.tlog\cmTC_b91c1.lastbuildstate".
+Done Building Project "C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\cmTC_b91c1.vcxproj" (default targets).
 
 Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:00.85
+Time Elapsed 00:00:00.79
 
 
 
@@ -130,41 +130,41 @@ Time Elapsed 00:00:00.85
 Detecting CXX [] compiler features compiled with the following output:
 Change Dir: C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_bb2bc.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_639a1.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
 Microsoft (R) Build Engine version 14.0.24723.2
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 12/8/2016 4:32:51 PM.
+Build started 12/12/2016 5:02:04 PM.
 The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
-Project "C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\cmTC_bb2bc.vcxproj" on node 1 (default targets).
+Project "C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\cmTC_639a1.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_bb2bc.dir\Debug\".
+  Creating directory "cmTC_639a1.dir\Debug\".
   Creating directory "C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_bb2bc.dir\Debug\cmTC_bb2bc.tlog\".
+  Creating directory "cmTC_639a1.dir\Debug\cmTC_639a1.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_bb2bc.dir\Debug\cmTC_bb2bc.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_639a1.dir\Debug\cmTC_639a1.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_bb2bc.dir\Debug\\" /Fd"cmTC_bb2bc.dir\Debug\vc140.pdb" /Gd /TP /errorReport:queue C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\feature_tests.cxx
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_639a1.dir\Debug\\" /Fd"cmTC_639a1.dir\Debug\vc140.pdb" /Gd /TP /errorReport:queue C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\feature_tests.cxx
   Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x64
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_bb2bc.dir\Debug\\" /Fd"cmTC_bb2bc.dir\Debug\vc140.pdb" /Gd /TP /errorReport:queue C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\feature_tests.cxx
+  cl /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_639a1.dir\Debug\\" /Fd"cmTC_639a1.dir\Debug\vc140.pdb" /Gd /TP /errorReport:queue C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\feature_tests.cxx
   
   feature_tests.cxx
 Link:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\Debug\cmTC_bb2bc.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/CMakeFiles/CMakeTmp/Debug/cmTC_bb2bc.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/CMakeFiles/CMakeTmp/Debug/cmTC_bb2bc.lib" /MACHINE:X64  /machine:x64 cmTC_bb2bc.dir\Debug\feature_tests.obj
-  cmTC_bb2bc.vcxproj -> C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\Debug\cmTC_bb2bc.exe
-  cmTC_bb2bc.vcxproj -> C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/CMakeFiles/CMakeTmp/Debug/cmTC_bb2bc.pdb (Full PDB)
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\Debug\cmTC_639a1.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/CMakeFiles/CMakeTmp/Debug/cmTC_639a1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/CMakeFiles/CMakeTmp/Debug/cmTC_639a1.lib" /MACHINE:X64  /machine:x64 cmTC_639a1.dir\Debug\feature_tests.obj
+  cmTC_639a1.vcxproj -> C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\Debug\cmTC_639a1.exe
+  cmTC_639a1.vcxproj -> C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/CMakeFiles/CMakeTmp/Debug/cmTC_639a1.pdb (Full PDB)
 FinalizeBuildStatus:
-  Deleting file "cmTC_bb2bc.dir\Debug\cmTC_bb2bc.tlog\unsuccessfulbuild".
-  Touching "cmTC_bb2bc.dir\Debug\cmTC_bb2bc.tlog\cmTC_bb2bc.lastbuildstate".
-Done Building Project "C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\cmTC_bb2bc.vcxproj" (default targets).
+  Deleting file "cmTC_639a1.dir\Debug\cmTC_639a1.tlog\unsuccessfulbuild".
+  Touching "cmTC_639a1.dir\Debug\cmTC_639a1.tlog\cmTC_639a1.lastbuildstate".
+Done Building Project "C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\cmTC_639a1.vcxproj" (default targets).
 
 Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:00.85
+Time Elapsed 00:00:00.83
 
 
     Feature record: CXX_FEATURE:1cxx_alias_templates
@@ -231,7 +231,7 @@ The output was:
 Microsoft (R) Build Engine version 14.0.24723.2
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 12/8/2016 4:32:53 PM.
+Build started 12/12/2016 5:02:06 PM.
 The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
 Project "C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\3.6.2\CompilerIdC\CompilerIdC.vcxproj" on node 1 (default targets).
 PrepareForBuild:
@@ -258,7 +258,7 @@ Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:00.84
+Time Elapsed 00:00:00.87
 
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -270,80 +270,80 @@ The C compiler identification is MSVC, found in "C:/Users/Maxwell/Documents/LSU/
 Determining if the C compiler works passed with the following output:
 Change Dir: C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_47653.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_35321.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
 Microsoft (R) Build Engine version 14.0.24723.2
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 12/8/2016 4:32:54 PM.
+Build started 12/12/2016 5:02:07 PM.
 The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
-Project "C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\cmTC_47653.vcxproj" on node 1 (default targets).
+Project "C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\cmTC_35321.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_47653.dir\Debug\".
+  Creating directory "cmTC_35321.dir\Debug\".
   Creating directory "C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_47653.dir\Debug\cmTC_47653.tlog\".
+  Creating directory "cmTC_35321.dir\Debug\cmTC_35321.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_47653.dir\Debug\cmTC_47653.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_35321.dir\Debug\cmTC_35321.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_47653.dir\Debug\\" /Fd"cmTC_47653.dir\Debug\vc140.pdb" /Gd /TC /errorReport:queue C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\testCCompiler.c
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_35321.dir\Debug\\" /Fd"cmTC_35321.dir\Debug\vc140.pdb" /Gd /TC /errorReport:queue C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\testCCompiler.c
   Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x64
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_47653.dir\Debug\\" /Fd"cmTC_47653.dir\Debug\vc140.pdb" /Gd /TC /errorReport:queue C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\testCCompiler.c
+  cl /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_35321.dir\Debug\\" /Fd"cmTC_35321.dir\Debug\vc140.pdb" /Gd /TC /errorReport:queue C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\testCCompiler.c
   
   testCCompiler.c
 Link:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\Debug\cmTC_47653.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/CMakeFiles/CMakeTmp/Debug/cmTC_47653.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/CMakeFiles/CMakeTmp/Debug/cmTC_47653.lib" /MACHINE:X64  /machine:x64 cmTC_47653.dir\Debug\testCCompiler.obj
-  cmTC_47653.vcxproj -> C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\Debug\cmTC_47653.exe
-  cmTC_47653.vcxproj -> C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/CMakeFiles/CMakeTmp/Debug/cmTC_47653.pdb (Full PDB)
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\Debug\cmTC_35321.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/CMakeFiles/CMakeTmp/Debug/cmTC_35321.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/CMakeFiles/CMakeTmp/Debug/cmTC_35321.lib" /MACHINE:X64  /machine:x64 cmTC_35321.dir\Debug\testCCompiler.obj
+  cmTC_35321.vcxproj -> C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\Debug\cmTC_35321.exe
+  cmTC_35321.vcxproj -> C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/CMakeFiles/CMakeTmp/Debug/cmTC_35321.pdb (Full PDB)
 FinalizeBuildStatus:
-  Deleting file "cmTC_47653.dir\Debug\cmTC_47653.tlog\unsuccessfulbuild".
-  Touching "cmTC_47653.dir\Debug\cmTC_47653.tlog\cmTC_47653.lastbuildstate".
-Done Building Project "C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\cmTC_47653.vcxproj" (default targets).
+  Deleting file "cmTC_35321.dir\Debug\cmTC_35321.tlog\unsuccessfulbuild".
+  Touching "cmTC_35321.dir\Debug\cmTC_35321.tlog\cmTC_35321.lastbuildstate".
+Done Building Project "C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\cmTC_35321.vcxproj" (default targets).
 
 Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:00.89
+Time Elapsed 00:00:00.84
 
 
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_7e07f.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
+Run Build Command:"C:/Program Files (x86)/MSBuild/14.0/bin/MSBuild.exe" "cmTC_1ed17.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"
 Microsoft (R) Build Engine version 14.0.24723.2
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 12/8/2016 4:32:55 PM.
+Build started 12/12/2016 5:02:08 PM.
 The target "BeforeGenerateProjectPriFile" listed in a BeforeTargets attribute at "C:\Program Files (x86)\MSBuild\Microsoft\NuGet\Microsoft.NuGet.targets (186,61)" does not exist in the project, and will be ignored.
-Project "C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\cmTC_7e07f.vcxproj" on node 1 (default targets).
+Project "C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\cmTC_1ed17.vcxproj" on node 1 (default targets).
 PrepareForBuild:
-  Creating directory "cmTC_7e07f.dir\Debug\".
+  Creating directory "cmTC_1ed17.dir\Debug\".
   Creating directory "C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\Debug\".
-  Creating directory "cmTC_7e07f.dir\Debug\cmTC_7e07f.tlog\".
+  Creating directory "cmTC_1ed17.dir\Debug\cmTC_1ed17.tlog\".
 InitializeBuildStatus:
-  Creating "cmTC_7e07f.dir\Debug\cmTC_7e07f.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
+  Creating "cmTC_1ed17.dir\Debug\cmTC_1ed17.tlog\unsuccessfulbuild" because "AlwaysCreate" was specified.
 ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_7e07f.dir\Debug\\" /Fd"cmTC_7e07f.dir\Debug\vc140.pdb" /Gd /TC /errorReport:queue "C:\Program Files\CMake\share\cmake-3.6\Modules\CMakeCCompilerABI.c"
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_1ed17.dir\Debug\\" /Fd"cmTC_1ed17.dir\Debug\vc140.pdb" /Gd /TC /errorReport:queue "C:\Program Files\CMake\share\cmake-3.6\Modules\CMakeCCompilerABI.c"
   Microsoft (R) C/C++ Optimizing Compiler Version 19.00.23506 for x64
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_7e07f.dir\Debug\\" /Fd"cmTC_7e07f.dir\Debug\vc140.pdb" /Gd /TC /errorReport:queue "C:\Program Files\CMake\share\cmake-3.6\Modules\CMakeCCompilerABI.c"
+  cl /c /Zi /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_1ed17.dir\Debug\\" /Fd"cmTC_1ed17.dir\Debug\vc140.pdb" /Gd /TC /errorReport:queue "C:\Program Files\CMake\share\cmake-3.6\Modules\CMakeCCompilerABI.c"
   
   CMakeCCompilerABI.c
 Link:
-  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\Debug\cmTC_7e07f.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/CMakeFiles/CMakeTmp/Debug/cmTC_7e07f.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/CMakeFiles/CMakeTmp/Debug/cmTC_7e07f.lib" /MACHINE:X64  /machine:x64 cmTC_7e07f.dir\Debug\CMakeCCompilerABI.obj
-  cmTC_7e07f.vcxproj -> C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\Debug\cmTC_7e07f.exe
-  cmTC_7e07f.vcxproj -> C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/CMakeFiles/CMakeTmp/Debug/cmTC_7e07f.pdb (Full PDB)
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:QUEUE /OUT:"C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\Debug\cmTC_1ed17.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/CMakeFiles/CMakeTmp/Debug/cmTC_1ed17.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/CMakeFiles/CMakeTmp/Debug/cmTC_1ed17.lib" /MACHINE:X64  /machine:x64 cmTC_1ed17.dir\Debug\CMakeCCompilerABI.obj
+  cmTC_1ed17.vcxproj -> C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\Debug\cmTC_1ed17.exe
+  cmTC_1ed17.vcxproj -> C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/CMakeFiles/CMakeTmp/Debug/cmTC_1ed17.pdb (Full PDB)
 FinalizeBuildStatus:
-  Deleting file "cmTC_7e07f.dir\Debug\cmTC_7e07f.tlog\unsuccessfulbuild".
-  Touching "cmTC_7e07f.dir\Debug\cmTC_7e07f.tlog\cmTC_7e07f.lastbuildstate".
-Done Building Project "C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\cmTC_7e07f.vcxproj" (default targets).
+  Deleting file "cmTC_1ed17.dir\Debug\cmTC_1ed17.tlog\unsuccessfulbuild".
+  Touching "cmTC_1ed17.dir\Debug\cmTC_1ed17.tlog\cmTC_1ed17.lastbuildstate".
+Done Building Project "C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\CMakeFiles\CMakeTmp\cmTC_1ed17.vcxproj" (default targets).
 
 Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:00.98
+Time Elapsed 00:00:00.88
 
 
