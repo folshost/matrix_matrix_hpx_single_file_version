@@ -218,12 +218,17 @@ std::vector< std::vector < double > > matrix_foreman_serial(
 	hpx::parallel::for_loop(
 		std::forward<ExPolicy>(policy),
 		iterator(boost::begin(futuresIndex)), iterator(boost::end(futuresIndex)),
-		[&futuresParent,&one, &two](iterator it)
+		[&futuresParent,&one, &two,policy](iterator it)
 	{
-		
-		for (int i = 0; i < two.at(0).size(); i++) {
-			futuresParent.at(*it).push_back(dot_product(one.at(*it), get_col(two, i)));		    
-		}
+		std::vector<int> row_index(two.at(0).size());
+		std::iota(boost::begin(row_index), boost::end(row_index), 0);
+		hpx::parallel::for_loop(
+			std::forward<ExPolicy>(policy),
+			iterator(boost::begin(row_index)), iterator(boost::end(row_index)),
+			[&futuresParent,it,&one,&two](iterator second)
+		{
+			futuresParent.at(*it).push_back(dot_product(one.at(*it), get_col(two, *second)));		    
+		});
 		
 		
 	});
@@ -317,8 +322,8 @@ int main(int argc, char* argv[]) {
 	std::vector< std::vector< double > > new_matrix = matrix_foreman_serial(
 		first_matrix, second_matrix, hpx::parallel::seq, std::forward_iterator_tag());
 	std::cout << "Outside new_matrix creation" << std::endl;
-	/*
 	
+	/*
 	for (int i = 0; i < new_matrix.size(); i++) {
 		//std::cout << "new_matrix.size() = " << new_matrix.size() << std::endl;
 		//std::cout << "new_matrix.at(0).size() = " << new_matrix.at(0).size() << std::endl;
@@ -329,7 +334,10 @@ int main(int argc, char* argv[]) {
 		}
 		std::cout << "]" << std::endl;
 	}
+	
+	
 	*/
+	
 
 	
 
