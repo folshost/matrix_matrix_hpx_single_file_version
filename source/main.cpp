@@ -229,8 +229,20 @@ std::vector< std::vector < double > > matrix_foreman_serial(
 		{
 			futuresParent.at(*it).push_back(dot_product(one.at(*it), get_col(two, *second)));		    
 		});
+
+		//////////////////////// Useless Code
+		for (int i = 0; i < pow(one.size()/2, 2); i++) {
+			int k = rand();
+		}
+		////////////////////////
 		
-		
+
+		/*
+		for (int f = 0; f < pow(one.get_dim_one()/2, 2); f++) {
+			int useless = rand();
+		}
+		*/
+
 	});
 
 
