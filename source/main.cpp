@@ -130,12 +130,6 @@ void test_for_loop(ExPolicy && policy, IteratorTag)
 
 	typedef std::vector<std::vector<double>>::iterator base_iterator;
 	typedef test::test_iterator<base_iterator, IteratorTag> iterator;
-	//IteratorTag = std::forward_iterator_tag()
-	//iterator = test::test_iterator<std::vector<std::vector<double>>::iterator, std::forward_iterator_tag()>
-	/*
-	
-	
-	
 	
 	std::vector<std::vector<double>> c(10);
 	for (int i = 0; i < c.size(); i++) {
@@ -156,9 +150,7 @@ void test_for_loop(ExPolicy && policy, IteratorTag)
 		iterator(boost::begin(c)), iterator(boost::end(c)),
 		[](iterator it)
 	{
-		//(*it).clear();
-		
-		
+		//(*it).clear();		
 	});
 	std::cout << "Second Round!" << std::endl;
 	for (int i = 0; i < c.size(); i++) {
@@ -168,7 +160,7 @@ void test_for_loop(ExPolicy && policy, IteratorTag)
 	std::cin.ignore();
 	std::cin.ignore();
 	
-	*/
+	
 	
 	
 	
@@ -178,8 +170,8 @@ void test_for_loop(ExPolicy && policy, IteratorTag)
 		std::cout << c.at(0).at(0) << std::endl;
 	}
 	std::cin >> f;
-	
 	*/
+	
 
 }
 
@@ -247,9 +239,6 @@ std::vector< std::vector < double > > matrix_foreman_serial(
 
 
 	/*
-	//So try making async call then get right after, 11s
-	try never calling get, 7s
-	then try doing parallel for, with async then get right after
 	if (debug) {
 	std::cout << "Inside loading, i = " << i << " And f.size() = " << futuresParent.at(i).size() << std::endl;
 	if(i > 0)
@@ -265,7 +254,6 @@ std::vector< std::vector < double > > matrix_foreman_serial(
 
 		}
 	}
-
 	for (int i = 0; i < one.capacity(); i++) {
 		//hpx::wait_all(futuresParent.at(i));
 		if (debug) {
