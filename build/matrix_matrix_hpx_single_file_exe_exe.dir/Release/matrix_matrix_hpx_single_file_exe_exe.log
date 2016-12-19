@@ -2,6 +2,14 @@
   NOTE: Use of this header (bool_trait_def.hpp) is deprecated
   NOTE: Use of this header (template_arity_spec.hpp) is deprecated
   NOTE: Use of this header (template_arity_spec.hpp) is deprecated
-C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\source\main.cpp(289): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\source\main.cpp(293): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\source\main.cpp(217): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\source\main.cpp(327): note: see reference to function template instantiation 'std::vector<std::vector<double,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>> matrix_foreman_serial<const hpx::parallel::v1::sequential_execution_policy&,std::forward_iterator_tag>(std::vector<std::vector<_Ty,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>> &,std::vector<std::vector<_Ty,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>> &,ExPolicy,IteratorTag)' being compiled
+          with
+          [
+              _Ty=double,
+              ExPolicy=const hpx::parallel::v1::sequential_execution_policy &,
+              IteratorTag=std::forward_iterator_tag
+          ]
      Creating library C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/Release/matrix_matrix_hpx_single_file_exe.lib and object C:/Users/Maxwell/Documents/LSU/CCT/matrix_matrix_hpx_single_file_version/build/Release/matrix_matrix_hpx_single_file_exe.exp
   matrix_matrix_hpx_single_file_exe_exe.vcxproj -> C:\Users\Maxwell\Documents\LSU\CCT\matrix_matrix_hpx_single_file_version\build\Release\matrix_matrix_hpx_single_file_exe.exe

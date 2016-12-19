@@ -124,6 +124,7 @@ std::vector< double > get_col(const std::vector< std::vector< double > >& data,
 template <typename ExPolicy, typename IteratorTag>
 void test_for_loop(ExPolicy && policy, IteratorTag)
 {
+
 	static_assert(
 		hpx::parallel::is_execution_policy<ExPolicy>::value,
 		"hpx::parallel::is_execution_policy<ExPolicy>::value");
@@ -196,14 +197,13 @@ std::vector< std::vector < double > > matrix_foreman_serial(
 	std::vector< std::vector< double > > data;
 	data.reserve(one.capacity());
 	std::vector< std::vector< double > > futuresParent;
-	std::vector<int> futuresIndex(one.size());
+	std::vector<int> futuresIndex(4);
 	std::iota(boost::begin(futuresIndex), boost::end(futuresIndex), 0);
 	for (int i = 0; i < one.size(); i++) {
 		std::vector<double> temp;
 		temp.reserve(two.at(0).size());
 		futuresParent.push_back(temp);
 	}
-	futuresParent.reserve(one.size());
 	std::cout << "Matrix Foreman Loading:" << std::endl;
 	
 
@@ -214,6 +214,14 @@ std::vector< std::vector < double > > matrix_foreman_serial(
 	{
 		std::vector<int> row_index(two.at(0).size());
 		std::iota(boost::begin(row_index), boost::end(row_index), 0);
+		for (int i = (*it)*(one.size() / 4); i < (*it + 1)*(one.size() / 4); i++) {
+			for (int j = 0; j < one.size(); j++) {
+				futuresParent.at(i).push_back(dot_product(one.at(i), get_col(two, j)));
+			}
+		}
+		
+
+		/*
 		hpx::parallel::for_loop(
 			std::forward<ExPolicy>(policy),
 			iterator(boost::begin(row_index)), iterator(boost::end(row_index)),
@@ -221,15 +229,11 @@ std::vector< std::vector < double > > matrix_foreman_serial(
 		{
 			futuresParent.at(*it).push_back(dot_product(one.at(*it), get_col(two, *second)));		    
 		});
-
 		//////////////////////// Useless Code
 		for (int i = 0; i < pow(one.size()/2, 2); i++) {
 			int k = rand();
 		}
 		////////////////////////
-		
-
-		/*
 		for (int f = 0; f < pow(one.get_dim_one()/2, 2); f++) {
 			int useless = rand();
 		}
@@ -334,9 +338,10 @@ int main(int argc, char* argv[]) {
 		}
 		std::cout << "]" << std::endl;
 	}
-	
-	
 	*/
+	
+	
+	
 	
 
 	
